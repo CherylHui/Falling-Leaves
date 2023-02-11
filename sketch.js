@@ -7,8 +7,8 @@ function setup() {
 function draw() {
   background(255);
   
- for(let x =0;x<height;x+=200){
-  drawTree(100+x,width);}
+ for(let x =0;x<width;x+=200){
+  drawTree(100+x,height);}
 }
 
 function drawTree(x,y){
@@ -29,7 +29,7 @@ function branch(len,wid,ang){
   arc(50,70,40,40,-PI/2,0,OPEN);
   translate(0,newLen);
   let newAng=map(mouseY,0,height,0,PI/4,PI);
-  let newWid= map(mouseY,0,height,100,300);
+  let newWid= map(mouseY,0,height,100,10);
   branch(newLen,newWid,newAng);
   branch(newLen,newWid,-newAng);
   pop();
