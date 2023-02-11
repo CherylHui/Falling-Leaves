@@ -1,12 +1,18 @@
 //Falling Leaves[2022] by Cheryl Hui
+let h;
+let k;
 function setup() {
-  createCanvas(800, 800);
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent("sketch-container"); //move our canvas inside this HTML element
+  h= windowWidth;
+  k = windowHeight;
 }
 
 function draw() {
   background(255);
- for(let x =0;x<width;x+=100){
-  drawTree(100+x,height);}
+  
+ for(let x =0;x<h;x+=200){
+  drawTree(100+x,k);}
 }
 
 function drawTree(x,y){
@@ -17,21 +23,27 @@ function drawTree(x,y){
 }
 
 function branch(len,wid,ang){
-  if(len <24.0) return;
-  let newLen = len*map(mouseX,0,width,0.4,0.8);
+  if(len <50.0) return;
+  let newLen = len*map(mouseX,0,h,0.4,0.8);
   strokeWeight(2);
   push();
   rotate(ang);
   noFill();
   arc(70,50,40,40,PI/2,PI,OPEN);
   arc(50,70,40,40,-PI/2,0,OPEN);
-  // arc(280,280,160,160,-PI,-PI/2,PIE);
   translate(0,newLen);
-  let newAng=map(mouseY,0,height,0,PI/4,PI);
-  let newWid= map(mouseY,0,height,100,height);
+  let newAng=map(mouseY,0,k,0,PI/4,PI);
+  let newWid= map(mouseY,0,k,100,k);
   branch(newLen,newWid,newAng);
   branch(newLen,newWid,-newAng);
   pop();
+}
+
+function windowResized() {
+
+  resizeCanvas(windowWidth, windowHeight);
+  h = windowWidth;
+  k = windowHeight;
 }
 
 function keyPressed(){
