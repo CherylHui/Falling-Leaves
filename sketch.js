@@ -32,8 +32,8 @@ function branch(len,wid,ang){
   arc(70,50,40,40,PI/2,PI,OPEN);
   arc(50,70,40,40,-PI/2,0,OPEN);
   translate(0,newLen);
-  let newAng=map(mouseY,0,k,0,PI/4,PI);
-  let newWid= map(mouseY,0,k,100,k);
+  let newAng=map(mouseY,0,width,0,PI/4,PI);
+  let newWid= map(mouseY,0,height,100,k);
   branch(newLen,newWid,newAng);
   branch(newLen,newWid,-newAng);
   pop();
