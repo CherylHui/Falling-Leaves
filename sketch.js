@@ -20,7 +20,7 @@ function drawTree(x,y){
 
 function branch(len,wid,ang){
   if(len <50.0) return;
-  let newLen = len*map(mouseX,0,h,0.4,0.8);
+  let newLen = len*map(mouseX,0,width,0.4,0.8);
   strokeWeight(2);
   push();
   rotate(ang);
@@ -29,7 +29,7 @@ function branch(len,wid,ang){
   arc(50,70,40,40,-PI/2,0,OPEN);
   translate(0,newLen);
   let newAng=map(mouseY,0,width,0,PI/4,PI);
-  let newWid= map(mouseY,0,height,100,k);
+  let newWid= map(mouseY,0,height,100,windowHeight);
   branch(newLen,newWid,newAng);
   branch(newLen,newWid,-newAng);
   pop();
