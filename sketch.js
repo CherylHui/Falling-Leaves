@@ -1,18 +1,14 @@
 //Falling Leaves[2022] by Cheryl Hui
-let h;
-let k;
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("sketch-container"); //move our canvas inside this HTML element
-  h= windowWidth;
-  k = windowHeight;
 }
 
 function draw() {
   background(255);
   
- for(let x =0;x<h;x+=200){
-  drawTree(100+x,k);}
+ for(let x =0;x<height;x+=200){
+  drawTree(100+x,width);}
 }
 
 function drawTree(x,y){
@@ -42,8 +38,6 @@ function branch(len,wid,ang){
 function windowResized() {
 
   resizeCanvas(windowWidth, windowHeight);
-  h = windowWidth;
-  k = windowHeight;
 }
 
 function keyPressed(){
